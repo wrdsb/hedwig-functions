@@ -38,7 +38,7 @@ module.exports = function (context, data) {
         from: from,
         to: to,
         subject: subject,
-        text: body
+        text: text
     };
     if (html) {
         message.html = html;
