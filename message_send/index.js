@@ -10,7 +10,8 @@ module.exports = function (context, data) {
     var from = data.from;
     var to = data.to;
     var subject = data.subject;
-    var body = data.body;
+    var text = data.text;
+    var html = data.html;
 
     var message = {
         from: from,
@@ -18,6 +19,9 @@ module.exports = function (context, data) {
         subject: subject,
         text: body
     };
+    if (html) {
+        message.html = html;
+    }
     context.log(message);
       
     mailgun.messages().send(message, function (error, body) {
