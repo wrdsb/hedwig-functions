@@ -13,6 +13,27 @@ module.exports = function (context, data) {
     var text = data.text;
     var html = data.html;
 
+    if (!from) {
+        context.log("From address is required.");
+        context.done("From address is required.");
+        return;
+    }
+    if (!to) {
+        context.log("From address is required.");
+        context.done("From address is required.");
+        return;
+    }
+    if (!subject) {
+        context.log("From address is required.");
+        context.done("From address is required.");
+        return;
+    }
+    if (!text) {
+        context.log("From address is required.");
+        context.done("From address is required.");
+        return;
+    }
+
     var message = {
         from: from,
         to: to,
