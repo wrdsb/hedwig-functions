@@ -18,6 +18,7 @@ module.exports = function (context, data) {
         subject: subject,
         text: body
     };
+    context.log(message);
       
     mailgun.messages().send(message, function (error, body) {
         if (error) {
@@ -25,6 +26,7 @@ module.exports = function (context, data) {
                 status: 500,
                 body: error
             }
+            context.log(error);
             context.done(error);
             return;
         } else {
@@ -32,6 +34,7 @@ module.exports = function (context, data) {
                 status: 200,
                 body: body
             }
+            context.log(body);
             context.done(null, JSON.stringify(body));
         }
     });
