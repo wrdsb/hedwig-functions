@@ -6,7 +6,7 @@ module.exports = function (context, data) {
     // load Mailgun helper
     var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
-    mailgun.list(function (error, body) {
+    mailgun.lists().list(function (error, body) {
         if (error) {
             context.res = {
                 status: 500,
